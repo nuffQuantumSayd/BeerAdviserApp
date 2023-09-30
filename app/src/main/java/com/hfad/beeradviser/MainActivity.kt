@@ -16,8 +16,16 @@ class MainActivity : AppCompatActivity() {
             val beerColor = findViewById<Spinner>(R.id.beer_color)
             val color = beerColor.selectedItem
             val brands = findViewById<TextView>(R.id.brands)
-            brands.text = "Beer is $color"
+            brands.text = beers
         }
 
+    }
+    private fun getBeers(color: String): List<String> {
+        return when (color) {
+            "Light" -> listOf("Jail Pail Ale", "Lager Lite")
+            "Amber" -> listOf("Jack Amber", "Red Moose")
+            "Brown" -> listOf("Brown Bear Beer", "Bock Brownie")
+            else -> listOf("Gout Stout", "Dark Daniel")
+        }
     }
 }
