@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         findBeer.setOnClickListener {
             val beerColor = findViewById<Spinner>(R.id.beer_color)
             val color = beerColor.selectedItem
+
+            val beersList = getBeers(color.toString())
+
+            val beers = beersList.reduce{str, item -> str + "\n" + item}
+
             val brands = findViewById<TextView>(R.id.brands)
             brands.text = beers
         }
